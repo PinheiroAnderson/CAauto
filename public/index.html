@@ -1,89 +1,116 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+<html lang="pt-BR">
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/12.8.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/12.8.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/12.8.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/12.8.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/12.8.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/12.8.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/12.8.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/12.8.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/12.8.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/12.8.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="CA Auto Serviços - Especialistas em mecânica automotiva: freios, injeção, suspensão, óleo e bateria. Serviços de qualidade em Guaratiba, RJ.">
+  <meta name="keywords" content="mecânica, freios, injeção, suspensão, óleo, bateria, Guaratiba, RJ, oficina">
+  <meta name="author" content="Anderson Pinheiro">
+  <title>CA Auto Serviços - Mecânica Automotiva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+<body>
+
+  <header class="header" role="banner">
+    <div class="container header-content">
+      <div class="logo">
+        <img src="img/logoNavBar.png" alt="Logo CA Auto Serviços" class="img-logo">
+        <span>CA Auto Serviços</span>
+      </div>
+      <nav class="nav" role="navigation" aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a href="#service">Serviços</a>
+        <a href="#sobre">Sobre</a>
+      </nav>
+      <a href="https://wa.me/+5521964971436?text=Ol%C3%A1!%20Vim%20do%20site%20e%20gostaria%20de%20marcar%20uma%20revis%C3%A3o%20para%20meu%20carro"
+        class="header-phone" aria-label="Ligar para (21) 96497-1436 via WhatsApp"> 📱 (21) 96497-1436 </a>
+      <button class="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+  </header>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+  <main id="app">
+    <section class="hero-section" aria-labelledby="hero-title">
+      <div class="left-content">
+        <h1 id="hero-title">Bem-vindo à<br>CA Auto Serviços</h1>
+        <p>Oferecemos serviços completos de mecânica em geral com qualidade e confiança.</p>
+        <a href="#service" class="btn-cta" aria-label="Ir para seção de serviços">NOSSOS SERVIÇOS</a>
+        <div class="left-decoration"></div>
+      </div>
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
+      <div class="diagonal-separator"></div>
+
+      <div class="right-content">
+        <div class="image-area"></div>
+
+        <div class="contact-area">
+          <img src="img/contato.png" alt="Contato" class="contact-image">
+        </div>
+      </div>
+    </section>
+
+    <!-- Letreiro de Saudação -->
+    <div class="letreiro-container">
+      <div id="meu-letreiro" class="letreiro-texto">{{ saudacao }}</div>
+    </div>
+
+    <section id="service" class="services-section" role="region" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title">Nossos Serviços</h2>
+        <div class="services-grid">
+          <service-item v-for="service in services" :key="service.id" :img="service.img" :title="service.title"
+            :alt="service.alt"></service-item>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Sobre Nós -->
+    <section id="sobre" class="sobre-nos" role="region" aria-labelledby="about-title">
+      <div class="container">
+        <div class="nos">
+          <h3 id="about-title">Sobre Nós</h3>
+          <p>A CA Auto Serviços é especializada em mecânica em geral, oferecendo soluções completas para manter seu
+            veículo seguro, confiável e com o melhor desempenho. Trabalhamos com injeção eletrônica, freios e ABS,
+            suspensão, alinhamento, troca de óleo e baterias, sempre utilizando equipamentos adequados e seguindo
+            padrões técnicos rigorosos. Nosso compromisso é com a qualidade do serviço, transparência no atendimento e
+            confiança do cliente. Aqui, cada veículo recebe atenção individual, diagnóstico preciso e um serviço feito
+            com responsabilidade.</p>
+        </div>
+      </div>
+      <div class="mapa">
+        <iframe
+          src="https://maps.google.com/maps?width=600&height=400&hl=pt-br&q=Av.+Campo+Mour%C3%A3o+Lote+36+-+Quadra+84+Jardim+Maravilha+-+Guaratiba,+RJ&t=m&z=14&ie=UTF8&iwloc=B&output=embed"
+          allowfullscreen></iframe>
+        <div>
+          <p><strong>Av. Campo Mourão Lote 36 - Quadra 84 Jardim Maravilha - Guaratiba, RJ</strong></p>
+          <p>Tel: <span class="bold numberPhone">21 98341-6141</span></p>
+        </div>
+      </div>
+      <div class="social-media">
+        <a href="https://www.instagram.com/caautoservicos/#" target="_blank" rel="noopener" class="instagram-link">
+          <img src="icons/instagram.png" alt="Instagram" class="instagram-icon">
+          Siga-nos no Instagram: @caautoservicos
+        </a>
+      </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      <p>&copy; {{ anoAtual }} Desenvolvido por Anderson Pinheiro - Todos os direitos reservados</p>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
 </html>
