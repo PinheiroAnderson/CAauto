@@ -430,7 +430,7 @@ button.hamburger {
 }
 
 .letreiro-container {
-    background-color: var(--primary-teal);
+    background-color: var(--text-gray);
     color: var(--white);
     padding: 15px 0;
     overflow: hidden;

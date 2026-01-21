@@ -1,3 +1,31 @@
+document.addEventListener('DOMContentLoaded', () => {
+    atualizarSaudacao();
+    setInterval(atualizarSaudacao, 60000); // Atualiza a cada minuto
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Menu hambúrguer com acessibilidade
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('.nav');
+
+    hamburger.addEventListener('click', function() {
+        nav.classList.toggle('active');
+        const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', !expanded);
+    });
+});
+
 function atualizarSaudacao() {
     const agora = new Date();
     const hora = agora.getHours();
@@ -13,13 +41,8 @@ function atualizarSaudacao() {
     }
 
     elemento.innerText = saudacao;
-
-    
     document.getElementById("anoAtual").textContent = new Date().getFullYear();
 }
-
-
-window.onload = atualizarSaudacao;
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
