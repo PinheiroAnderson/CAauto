@@ -247,10 +247,16 @@ body {
     cursor: pointer;
 }
 
+button.hamburger {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
 .hamburger span {
     width: 25px;
     height: 3px;
-    background-color: var(--dark-gray);
+    background-color:var(--dark-gray);
     margin: 3px 0;
     transition: 0.3s;
 }
