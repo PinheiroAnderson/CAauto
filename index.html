@@ -33,7 +33,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="app">
     <section class="hero-section" aria-labelledby="hero-title">
         <div class="left-content">
             <h1 id="hero-title">Bem-vindo à<br>CA Auto Serviços</h1>
@@ -55,29 +55,14 @@
 
     <!-- Letreiro de Saudação -->
     <div class="letreiro-container">
-        <div id="meu-letreiro" class="letreiro-texto">Bem-vindo à CA Auto Serviços! Serviços de mecânica com qualidade e confiança.</div>
+        <div id="meu-letreiro" class="letreiro-texto">{{ saudacao }}</div>
     </div>
 
     <section id="service" class="services-section" role="region" aria-labelledby="services-title">
         <div class="container">
             <h2 id="services-title">Nossos Serviços</h2>
             <div class="services-grid">
-                <div class="service-item">
-                    <img src="img/breaks.png" alt="Freios">
-                    <h3>Freios</h3>
-                </div>
-                <div class="service-item">
-                    <img src="img/inject.png" alt="Injeção">
-                    <h3>Injeção</h3>
-                </div>
-                <div class="service-item">
-                    <img src="img/oilbat.png" alt="Óleo e Bateria">
-                    <h3>Óleo e Bateria</h3>
-                </div>
-                <div class="service-item">
-                    <img src="img/susp.png" alt="Suspensão">
-                    <h3>Suspensão</h3>
-                </div>
+                <service-item v-for="service in services" :key="service.id" :img="service.img" :title="service.title" :alt="service.alt"></service-item>
             </div>
         </div>
     </section>
@@ -104,13 +89,14 @@
                 </a>
             </div>
     </section>
-    </main>
 
     <!-- Rodapé -->
     <footer class="footer">
-        <p>&copy; <span id="anoAtual"></span> Desenvolvido por Anderson Pinheiro - Todos os direitos reservados</p>
+        <p>&copy; {{ anoAtual }} Desenvolvido por Anderson Pinheiro - Todos os direitos reservados</p>
     </footer>
+    </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
     <script src="script.js"></script>
 
 </body>
