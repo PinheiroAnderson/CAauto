@@ -1,6 +1,7 @@
 const { createApp } = Vue;
 
 const app = createApp({
+    // Dados reativos da aplicação
     data() {
         return {
             saudacao: 'Bem-vindo à CA Auto Serviços! Serviços de mecânica com qualidade e confiança.',
@@ -13,6 +14,8 @@ const app = createApp({
             ]
         };
     },
+
+    // Componentes da aplicação
     components: {
         'service-item': {
             props: ['img', 'title', 'alt'],
@@ -24,50 +27,75 @@ const app = createApp({
             `
         }
     },
+
+    // Lifecycle hook: executado após a montagem do componente
     mounted() {
         this.atualizarSaudacao();
-        setInterval(this.atualizarSaudacao, 60000); // Atualiza a cada minuto
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Menu hambúrguer com acessibilidade
-        const hamburger = document.querySelector('.hamburger');
-        const nav = document.querySelector('.nav');
-
-        hamburger.addEventListener('click', function() {
-            nav.classList.toggle('active');
-            const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-            hamburger.setAttribute('aria-expanded', !expanded);
-        });
+        this.iniciarIntervaloSaudacao();
+        this.configurarSmoothScroll();
+        this.configurarMenuHamburger();
     },
+
+    // Métodos da aplicação
     methods: {
+        /**
+         * Atualiza a saudação baseada no horário atual
+         */
         atualizarSaudacao() {
             const agora = new Date();
             const hora = agora.getHours();
-            let saudacao = "";
+            let saudacao = '';
 
             if (hora >= 5 && hora < 12) {
-                saudacao = "☀️ Bom dia! Seja bem-vindo ao nosso site.";
+                saudacao = '☀️ Bom dia! Seja bem-vindo ao nosso site.';
             } else if (hora >= 12 && hora < 18) {
-                saudacao = "🌤️ Boa tarde! Esperamos que seu dia esteja sendo produtivo.";
+                saudacao = '🌤️ Boa tarde! Esperamos que seu dia esteja sendo produtivo.';
             } else {
-                saudacao = "🌙 Boa noite! Aproveite nosso conteúdo antes de descansar.";
+                saudacao = '🌙 Boa noite! Aproveite nosso conteúdo antes de descansar.';
             }
 
             this.saudacao = saudacao;
+        },
+
+        /**
+         * Inicia o intervalo para atualizar a saudação a cada minuto
+         */
+        iniciarIntervaloSaudacao() {
+            setInterval(this.atualizarSaudacao, 60000);
+        },
+
+        /**
+         * Configura o smooth scroll para links de âncora
+         */
+        configurarSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(anchor.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        },
+
+        /**
+         * Configura o menu hambúrguer com acessibilidade
+         */
+        configurarMenuHamburger() {
+            const hamburger = document.querySelector('.hamburger');
+            const nav = document.querySelector('.nav');
+
+            if (hamburger && nav) {
+                hamburger.addEventListener('click', () => {
+                    nav.classList.toggle('active');
+                    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+                    hamburger.setAttribute('aria-expanded', !expanded);
+                });
+            }
         }
     }
 });
 
+// Monta a aplicação Vue no elemento com id 'app'
 app.mount('#app');
